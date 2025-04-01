@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuração do header */
+header{
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    background-color: #9cff9c;
+}
+header img{
+    width: 15vh;
+}
+header h1{
+    font-size: 4vh;
+    color: rgb(36, 78, 36);
+}
+
+/* Configuração da barra lateral */
+#barraLateral{
+    width: 25vw;
+    background-color: rgb(252, 228, 196);
+}
+
+.divContato {
+    display: flex;
+    flex-direction: row;
+    padding: 3vh;
+}
+.divContato img{
+    width: 8vh;
+}
+.divText{
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+}
+.divContato p{
+    font-size: 3vh;
+}
+.divContato span{
+    font-family: "Roboto Condensed", sans-serif;
+    color: rgb(73, 73, 73);
+}
