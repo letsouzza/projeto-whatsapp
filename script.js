@@ -13,11 +13,21 @@ async function pesquisarContatos(){
     // alert (data)
 }
 
+async function pesquisarConversas(nomeContato){
+    const nome = nomeContato
+    const url2 = `http://localhost:8080/v1/whatsapp/conversas/filtro?number=11987876567`
+
+    const response = await fetch(url2)
+    const data = await response.json()
+    return (data)
+}
+
 // Função para criar as imgs dentro da DIV 
 function criarContatos(link){ // Recebe o objeto 
 
     const divContato = document.createElement('div')
     divContato.className = 'divContato'
+    divContato.addEventListener('click', () => pesquisarConversas(nomeContato))
 
     const divText = document.createElement('div')
     divText.className = 'divText'
@@ -42,6 +52,17 @@ function criarContatos(link){ // Recebe o objeto
     lateral.appendChild(divContato)
 }
 
+function criarConversa(link){
+    const novaConversa = document.createElement('span')
+    novaConversa.textContent = link.sender
+}
+
+async function preencherConversas(){
+    const conversa = await pesquisarConversas()
+
+    conversa.forEach (criarConversa)
+}
+
 async function preencherTela(){
     const contatos = await pesquisarContatos()
 
@@ -49,3 +70,4 @@ async function preencherTela(){
 }
 
 preencherTela()
+preencherConversas()

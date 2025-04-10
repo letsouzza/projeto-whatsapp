@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: rgb(218, 216, 216);
+}
+
 /* Configuração do header */
 header{
     display: flex;
@@ -19,29 +23,68 @@ header h1{
     color: rgb(36, 78, 36);
 }
 
+#barraCentral{
+    display: flex;
+    position: relative;
+    left: 25vw;
+    width: 75vw;
+    background-color: aqua;
+}
+
+
+#imgCentro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Configuração da barra lateral */
 #barraLateral{
     width: 25vw;
-    background-color: rgb(252, 228, 196);
+    height: 100vh;
+    background-color: rgb(153, 153, 153);
+    padding: 1vh;
+}
+
+#pesquisaContato{
+    width: 100%;
+    padding: 1vh;
+    border-radius: 1vh;
+    font-size: 2vh;
 }
 
 .divContato {
     display: flex;
     flex-direction: row;
-    padding: 3vh;
+    padding: 2vh;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
+/* Transição para quando passar de um contato para o outro */
+.divContato:hover {
+    background-color: #9cff9c2d;
+}
+
+.divContato:active {
+    background-color: #9cff9cc7;
+}
+
 .divContato img{
-    width: 8vh;
+    width: 7vh;
+    height: 7vh;
 }
 .divText{
     display: flex;
     flex-direction: column;
-    padding: 1vh;
+    padding-left: 1vh;
 }
 .divContato p{
     font-size: 3vh;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .divContato span{
     font-family: "Roboto Condensed", sans-serif;
-    color: rgb(73, 73, 73);
+    font-size: 1.7vh;
+    color: rgb(39, 39, 39);
 }
