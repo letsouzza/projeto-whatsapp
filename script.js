@@ -3,6 +3,7 @@
 const centro = document.getElementById('barraCentral')
 const lateral = document.getElementById('barraLateral')
 const footer = document.getElementById('barraEmbaixo')
+const mensagemInicio = document.getElementById('mensagemInicio')
 
 async function pesquisarContatos(){
     const url = `http://localhost:8080/v1/whatsapp/contatos/filtro?number=11987876567` // url da api 
@@ -15,11 +16,11 @@ async function pesquisarContatos(){
 
 async function pesquisarConversas(nomeContato){
     const nome = nomeContato
-    const url2 = `http://localhost:8080/v1/whatsapp/conversas/filtro?number=11987876567`
+    const url = `http://localhost:8080/v1/whatsapp/usuario-contato/filtro?number=11987876567&nome=${nome}`
 
-    const response = await fetch(url2)
+    const response = await fetch(url)
     const data = await response.json()
-    return (data)
+    return data
 }
 
 // Função para criar as imgs dentro da DIV 
@@ -27,7 +28,7 @@ function criarContatos(link){ // Recebe o objeto
 
     const divContato = document.createElement('div')
     divContato.className = 'divContato'
-    divContato.addEventListener('click', () => pesquisarConversas(nomeContato))
+    divContato.addEventListener('click', () => preencherConversas(link.contato))
 
     const divText = document.createElement('div')
     divText.className = 'divText'
@@ -53,15 +54,23 @@ function criarContatos(link){ // Recebe o objeto
 }
 
 function criarConversa(link){
-    const novaConversa = document.createElement('span')
-    novaConversa.textContent = link.sender
+
+    mensagemInicio.style.display = 'none'
+
+    const divEsquerda = document.createElement('div')
+    divEsquerda.className = 'mensagens-da-esquerda'
+
+    const nome = document.createElement('p')
+    nome.textContent = link.sender
+
 }
 
-async function preencherConversas(){
-    const conversa = await pesquisarConversas()
+async function preencherConversas(nomeContato){
+    const conversa = await pesquisarConversas(nomeContato)
 
-    conversa.forEach (criarConversa)
+    conversa.forEach(criarConversa)
 }
+
 
 async function preencherTela(){
     const contatos = await pesquisarContatos()
@@ -70,4 +79,3 @@ async function preencherTela(){
 }
 
 preencherTela()
-preencherConversas()

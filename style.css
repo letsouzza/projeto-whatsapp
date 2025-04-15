@@ -14,29 +14,44 @@ header{
     align-items: center;
     height: 10vh;
     background-color: #9cff9c;
+    padding-left: 2vh;
+    gap: 1.5vh;
 }
 header img{
-    width: 15vh;
+    width: 8vh;
 }
 header h1{
     font-size: 4vh;
     color: rgb(36, 78, 36);
 }
 
-#barraCentral{
+.centro{
     display: flex;
-    position: relative;
-    left: 25vw;
-    width: 75vw;
-    background-color: aqua;
 }
 
+#mensagemInicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+    width: 75vw;
+}
 
 #imgCentro{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 30vh;
+    height: 30vh;
 }
+#mensagemInicio h2{
+    font-size: 5vh;
+    color: rgb(36, 78, 36);
+}
+#mensagemInicio span{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2.5vh;
+    color: rgb(68, 68, 68);
+}
+
+
 
 /* Configuração da barra lateral */
 #barraLateral{
